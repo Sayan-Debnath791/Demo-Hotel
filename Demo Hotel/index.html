@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC Hotel | Comfortable Stay &amp; Warm Hospitality</title>
+<meta name="description" content="Discover ABC Hotel — comfortable rooms, modern facilities and warm hospitality. Enquire now for your stay.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="ABC Hotel | Comfortable Stay &amp; Warm Hospitality">
+<meta property="og:description" content="Discover ABC Hotel — comfortable rooms, modern facilities and warm hospitality. Enquire now for your stay.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%2316241C'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23C6A15B' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   ABC HOTEL — Design Tokens
+   ========================================================================== */
+:root{
+  --ivory: #F5F0E4;
+  --ivory-soft: #FBF8F2;
+  --charcoal: #221E19;
+  --charcoal-soft: #4A443C;
+  --forest: #16241C;
+  --forest-soft: #1E3128;
+  --brass: #AD8A46;
+  --brass-light: #C6A15B;
+  --line: #E2D9C4;
+  --white: #FFFFFF;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --max-width: 1220px;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --shadow-card: 0 18px 40px -22px rgba(22,18,10,.35);
+  --shadow-lift: 0 26px 60px -24px rgba(22,18,10,.45);
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--ivory-soft);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight:500; margin:0 0 .5em; color: var(--charcoal); letter-spacing:-.01em; }
+p{ margin:0 0 1em; color: var(--charcoal-soft); }
+button{ font-family: inherit; cursor:pointer; }
+input, select, textarea{ font-family: inherit; font-size: 1rem; }
+
+.section-inner{ max-width: var(--max-width); margin:0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+
+.skip-link{
+  position:absolute; left:-999px; top:0; background:var(--forest); color:var(--white);
+  padding:.75em 1.25em; z-index:999; border-radius: 0 0 var(--radius-sm) 0;
+}
+.skip-link:focus{ left:0; }
+
+:focus-visible{ outline: 2px solid var(--brass); outline-offset: 3px; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5em;
+  padding: .95em 1.9em;
+  font-size: .92rem; font-weight:600; letter-spacing:.02em;
+  border-radius: 999px; border: 1px solid transparent;
+  transition: transform .35s var(--ease), background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
+  white-space: nowrap;
+}
+.btn:hover{ transform: translateY(-2px); }
+.btn-accent{ background: var(--brass); color: var(--forest); box-shadow: 0 14px 30px -14px rgba(173,138,70,.65); }
+.btn-accent:hover{ background: var(--brass-light); }
+.btn-outline{ border-color: rgba(255,255,255,.55); color: var(--white); }
+.btn-outline:hover{ background: rgba(255,255,255,.12); border-color: var(--white); }
+.btn-dark{ background: var(--forest); color: var(--ivory-soft); }
+.btn-dark:hover{ background: var(--forest-soft); }
+.btn-outline-dark{ border-color: var(--charcoal); color: var(--charcoal); }
+.btn-outline-dark:hover{ background: var(--charcoal); color: var(--white); }
+.btn-outline-light{ border-color: rgba(245,240,228,.4); color: var(--ivory); }
+.btn-outline-light:hover{ background: rgba(245,240,228,.1); border-color: var(--ivory); }
+.btn-whatsapp{ background:#25D366; color:#0b2a16; }
+.btn-whatsapp:hover{ background:#2fe374; }
+.btn-block{ width:100%; }
+
+.eyebrow{
+  font-size: .78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color: var(--brass); margin: 0 0 .9em;
+}
+.section-head.light .eyebrow{ color: var(--brass-light); }
+
+/* ==========================================================================
+   Reveal-on-scroll (single orchestrated pattern, not per-card)
+   ========================================================================== */
+.reveal{ opacity:0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in-view{ opacity:1; transform: translateY(0); }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header{
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  padding: 22px 0;
+  transition: background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+}
+.site-header .header-inner{
+  max-width: var(--max-width); margin:0 auto; padding: 0 clamp(20px, 5vw, 48px);
+  display:flex; align-items:center; justify-content:space-between; gap: 24px;
+}
+.site-header.scrolled{
+  background: rgba(22,36,28,.92); backdrop-filter: blur(10px);
+  padding: 14px 0; box-shadow: 0 12px 30px -18px rgba(0,0,0,.5);
+}
+
+.brand{
+  font-family: var(--font-display); font-size: 1.4rem; font-weight:600; color: var(--white);
+  letter-spacing:.02em;
+}
+.brand span{ color: var(--brass-light); font-weight:400; }
+
+.main-nav{ display:flex; align-items:center; gap: clamp(18px, 3vw, 36px); }
+.main-nav ul{ display:flex; align-items:center; gap: clamp(14px, 2vw, 26px); }
+.nav-link{
+  color: rgba(255,255,255,.88); font-size:.94rem; font-weight:500;
+  position:relative; padding: 4px 0;
+}
+.nav-link::after{
+  content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1px; background: var(--brass-light);
+  transition: right .3s var(--ease);
+}
+.nav-link:hover::after, .nav-link.active::after{ right:0; }
+.nav-cta{ padding: .72em 1.6em; }
+
+.hamburger{
+  display:none; flex-direction:column; justify-content:center; gap:5px;
+  width:40px; height:40px; background:none; border:none; padding:0;
+}
+.hamburger span{ width:24px; height:2px; background: var(--white); transition: transform .3s var(--ease), opacity .3s var(--ease); }
+.hamburger.open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity:0; }
+.hamburger.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+.nav-overlay{
+  position:fixed; inset:0; background: rgba(10,14,10,.55); backdrop-filter: blur(2px);
+  z-index: 95; opacity:0; visibility:hidden; transition: opacity .35s var(--ease), visibility .35s var(--ease);
+}
+.nav-overlay.show{ opacity:1; visibility:visible; }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero{
+  position:relative; min-height: 100svh; display:flex; align-items:center;
+  color: var(--white); overflow:hidden;
+}
+.hero-media{ position:absolute; inset:0; z-index:0; }
+.hero-media img{ width:100%; height:100%; object-fit:cover; }
+.hero-overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(15,20,15,.55) 0%, rgba(15,18,14,.45) 45%, rgba(10,14,10,.82) 100%);
+}
+.hero-content{
+  position:relative; z-index:1; max-width: 760px; margin: 0 auto; text-align:center;
+  padding: 0 24px;
+}
+.hero-eyebrow{ color: var(--brass-light); }
+.hero-title{
+  font-size: clamp(2.6rem, 6vw, 4.6rem); line-height:1.05; color: var(--white); margin-bottom:.4em;
+  font-weight: 400;
+}
+.hero-sub{ font-size: clamp(1rem, 1.6vw, 1.2rem); color: rgba(255,255,255,.88); max-width: 560px; margin: 0 auto 2em; }
+.hero-actions{ display:flex; gap: 16px; justify-content:center; flex-wrap:wrap; margin-bottom: 1.6em; }
+.hero-location{ font-size:.9rem; color: rgba(255,255,255,.7); letter-spacing:.01em; }
+
+.scroll-cue{
+  position:absolute; left:50%; bottom: 34px; transform: translateX(-50%);
+  width: 26px; height: 42px; border: 1px solid rgba(255,255,255,.55); border-radius: 20px;
+  z-index:1;
+}
+.scroll-cue span{
+  position:absolute; top:7px; left:50%; width:4px; height:8px; margin-left:-2px;
+  background: var(--brass-light); border-radius:2px;
+  animation: scrollcue 1.8s infinite;
+}
+@keyframes scrollcue{
+  0%{ opacity:1; transform: translateY(0); }
+  70%{ opacity:0; transform: translateY(14px); }
+  100%{ opacity:0; }
+}
+
+/* ==========================================================================
+   About
+   ========================================================================== */
+.about{ padding: clamp(70px, 10vw, 130px) 0; background: var(--ivory-soft); }
+.about-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items:center; }
+.about-media{ position:relative; }
+.about-media img{ border-radius: var(--radius-md); width:100%; height: 560px; object-fit:cover; box-shadow: var(--shadow-lift); }
+.about-media-tag{
+  position:absolute; left: -18px; bottom: -18px; background: var(--forest); color: var(--white);
+  padding: 22px 26px; border-radius: var(--radius-md); box-shadow: var(--shadow-card);
+}
+.about-media-tag-num{ display:block; font-family: var(--font-display); font-size: 2rem; color: var(--brass-light); line-height:1; }
+.about-media-tag-label{ display:block; font-size:.78rem; letter-spacing:.04em; margin-top:.35em; color: rgba(255,255,255,.8); }
+
+.about-copy h2{ font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
+.about-highlights{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin: 1.6em 0 2em; }
+.about-highlights li{ display:flex; align-items:center; gap: 12px; font-weight:600; font-size:.95rem; }
+.about-highlights svg{ width:22px; height:22px; color: var(--brass); flex-shrink:0; }
+
+/* ==========================================================================
+   Section heads
+   ========================================================================== */
+.section-head{ max-width: 640px; margin: 0 0 52px; }
+.section-head h2{ font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
+.section-sub{ font-size: 1.05rem; }
+.section-head.light h2{ color: var(--ivory-soft); }
+.section-head.light .section-sub{ color: rgba(245,240,228,.75); }
+
+/* ==========================================================================
+   Rooms
+   ========================================================================== */
+.rooms{ padding: clamp(70px, 10vw, 130px) 0; background: var(--ivory); }
+.room-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.room-card{
+  background: var(--white); border-radius: var(--radius-md); overflow:hidden;
+  box-shadow: var(--shadow-card); display:flex; flex-direction:column;
+}
+.room-media{ aspect-ratio: 4/3; overflow:hidden; }
+.room-media img{ width:100%; height:100%; object-fit:cover; transition: transform .6s var(--ease); }
+.room-card:hover .room-media img{ transform: scale(1.06); }
+.room-body{ padding: 28px 30px 30px; display:flex; flex-direction:column; flex:1; }
+.room-body h3{ font-size: 1.4rem; }
+.room-specs{ display:flex; flex-wrap:wrap; gap: 8px 10px; margin: .4em 0 1.6em; }
+.room-specs li{
+  font-size: .78rem; font-weight:600; letter-spacing:.02em; color: var(--charcoal-soft);
+  border: 1px solid var(--line); border-radius: 999px; padding: .45em 1em;
+}
+.room-body .btn{ align-self:flex-start; margin-top:auto; }
+
+/* ==========================================================================
+   Facilities
+   ========================================================================== */
+.facilities{ padding: clamp(70px, 10vw, 130px) 0; background: var(--forest); color: var(--ivory); }
+.facilities .eyebrow{ color: var(--brass-light); }
+.facilities h2{ color: var(--ivory-soft); max-width: 620px; }
+.facility-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(245,240,228,.12); border: 1px solid rgba(245,240,228,.12); border-radius: var(--radius-md); overflow:hidden; }
+.facility-card{ background: var(--forest-soft); padding: 32px 26px; transition: background .35s var(--ease); }
+.facility-card:hover{ background: #24392c; }
+.facility-card svg{ width:30px; height:30px; color: var(--brass-light); margin-bottom: 18px; }
+.facility-card h3{ font-size: 1.02rem; color: var(--ivory-soft); margin-bottom:.4em; }
+.facility-card p{ font-size:.88rem; color: rgba(245,240,228,.62); margin:0; }
+
+/* ==========================================================================
+   Gallery
+   ========================================================================== */
+.gallery{ padding: clamp(70px, 10vw, 130px) 0; background: var(--ivory-soft); }
+.gallery-filters{ display:flex; flex-wrap:wrap; gap: 10px; margin-bottom: 34px; }
+.filter-btn{
+  background: none; border: 1px solid var(--line); color: var(--charcoal-soft);
+  padding: .6em 1.3em; border-radius: 999px; font-size:.85rem; font-weight:600;
+  transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+}
+.filter-btn:hover{ border-color: var(--brass); color: var(--charcoal); }
+.filter-btn.active{ background: var(--forest); border-color: var(--forest); color: var(--ivory-soft); }
+
+.gallery-grid{
+  display:grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 14px;
+}
+.gallery-item{
+  position:relative; border-radius: var(--radius-sm); overflow:hidden; cursor:pointer;
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+}
+.gallery-item.hide{ display:none; }
+.gallery-item img{ width:100%; height:100%; object-fit:cover; transition: transform .6s var(--ease); }
+.gallery-item:hover img{ transform: scale(1.08); }
+.gallery-item:nth-child(6n+1){ grid-row: span 2; }
+.gallery-tag{
+  position:absolute; left:12px; bottom:12px; background: rgba(22,24,18,.72); color: var(--ivory-soft);
+  font-size:.72rem; font-weight:600; letter-spacing:.03em; padding: .4em .9em; border-radius: 999px;
+  opacity:0; transform: translateY(6px); transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+.gallery-item:hover .gallery-tag{ opacity:1; transform: translateY(0); }
+
+.lightbox{
+  position:fixed; inset:0; background: rgba(10,12,9,.94); z-index: 200;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; visibility:hidden; transition: opacity .35s var(--ease), visibility .35s var(--ease);
+}
+.lightbox.open{ opacity:1; visibility:visible; }
+.lightbox img{ max-width: 88vw; max-height: 82vh; border-radius: var(--radius-sm); box-shadow: 0 40px 80px rgba(0,0,0,.5); }
+.lightbox-close, .lightbox-nav{
+  position:absolute; background: rgba(255,255,255,.08); color: var(--white); border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50%; width: 48px; height: 48px; display:flex; align-items:center; justify-content:center;
+  font-size: 1.6rem; line-height:1; transition: background .3s var(--ease);
+}
+.lightbox-close:hover, .lightbox-nav:hover{ background: rgba(255,255,255,.18); }
+.lightbox-close{ top: 24px; right: 24px; }
+.lightbox-prev{ left: 24px; top:50%; transform: translateY(-50%); }
+.lightbox-next{ right: 24px; top:50%; transform: translateY(-50%); }
+
+/* ==========================================================================
+   Dining
+   ========================================================================== */
+.dining{ padding: clamp(70px, 10vw, 130px) 0; background: var(--ivory); }
+.dining-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items:center; }
+.dining-media{ position:relative; }
+.dining-img-main{ border-radius: var(--radius-md); width:100%; height: 460px; object-fit:cover; box-shadow: var(--shadow-lift); }
+.dining-img-sub{
+  position:absolute; width: 46%; border-radius: var(--radius-md); border: 6px solid var(--ivory);
+  box-shadow: var(--shadow-card); right: -6%; bottom: -12%; height: 220px; object-fit:cover;
+}
+.dining-copy h2{ font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
+
+/* ==========================================================================
+   Attractions
+   ========================================================================== */
+.attractions{ padding: clamp(70px, 10vw, 130px) 0; background: var(--ivory-soft); }
+.attraction-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.attraction-card{ background: var(--white); border-radius: var(--radius-md); overflow:hidden; box-shadow: var(--shadow-card); }
+.attraction-card img{ height: 190px; width:100%; object-fit:cover; transition: transform .6s var(--ease); }
+.attraction-card:hover img{ transform: scale(1.07); }
+.attraction-body{ padding: 22px 24px 26px; }
+.attraction-body h3{ font-size: 1.15rem; }
+.attraction-meta{ display:block; font-size:.78rem; color: var(--brass); font-weight:600; margin-top:.4em; }
+
+/* ==========================================================================
+   Reviews
+   ========================================================================== */
+.reviews{ padding: clamp(70px, 10vw, 130px) 0; background: var(--forest); }
+.review-track{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.review-card{
+  background: var(--forest-soft); border-radius: var(--radius-md); padding: 30px 28px;
+  border: 1px solid rgba(245,240,228,.1);
+}
+.review-stars{ color: var(--brass-light); letter-spacing:.1em; margin-bottom:.6em; font-size:.95rem; }
+.review-card p{ color: rgba(245,240,228,.82); font-size:.95rem; min-height: 6.4em; }
+.review-person{ display:flex; align-items:center; gap: 12px; margin-top: 1.2em; }
+.review-person img{ width: 42px; height:42px; border-radius:50%; object-fit:cover; }
+.review-person strong{ display:block; color: var(--ivory-soft); font-size:.92rem; }
+.review-person span{ display:block; font-size:.76rem; color: rgba(245,240,228,.55); }
+.review-dots{ display:none; justify-content:center; gap:8px; margin-top: 26px; }
+.review-dots button{ width:8px; height:8px; border-radius:50%; background: rgba(245,240,228,.3); border:none; padding:0; }
+.review-dots button.active{ background: var(--brass-light); }
+
+/* ==========================================================================
+   Policies / Accordion
+   ========================================================================== */
+.policies{ padding: clamp(70px, 10vw, 130px) 0; background: var(--ivory); }
+.accordion{ border-top: 1px solid var(--line); max-width: 780px; }
+.accordion-item{ border-bottom: 1px solid var(--line); }
+.accordion-trigger{
+  width:100%; background:none; border:none; display:flex; align-items:center; justify-content:space-between;
+  padding: 22px 4px; font-family: var(--font-display); font-size: 1.1rem; color: var(--charcoal); text-align:left;
+}
+.accordion-icon{ position:relative; width: 18px; height: 18px; flex-shrink:0; }
+.accordion-icon::before, .accordion-icon::after{
+  content:""; position:absolute; background: var(--brass); top:50%; left:50%;
+  transform: translate(-50%,-50%);
+}
+.accordion-icon::before{ width:14px; height:2px; }
+.accordion-icon::after{ width:2px; height:14px; transition: transform .3s var(--ease); }
+.accordion-trigger[aria-expanded="true"] .accordion-icon::after{ transform: translate(-50%,-50%) rotate(90deg); opacity:0; }
+.accordion-panel{ max-height:0; overflow:hidden; transition: max-height .4s var(--ease); }
+.accordion-panel p{ padding: 0 4px 22px; margin:0; max-width: 640px; }
+.policy-note{ margin-top: 26px; font-size:.85rem; color: var(--charcoal-soft); font-style:italic; }
+
+/* ==========================================================================
+   Location
+   ========================================================================== */
+.location{ padding: clamp(70px, 10vw, 130px) 0; background: var(--ivory-soft); }
+.location-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 70px); align-items:center; }
+.location-address{ font-family: var(--font-display); font-size: 1.2rem; color: var(--charcoal); }
+.location-list{ margin: 1.2em 0 1.8em; display:flex; flex-direction:column; gap: 10px; }
+.location-list li{ position:relative; padding-left: 22px; font-size:.95rem; color: var(--charcoal-soft); }
+.location-list li::before{ content:""; position:absolute; left:0; top:.55em; width:8px; height:8px; border-radius:50%; background: var(--brass); }
+.location-map{ border-radius: var(--radius-md); overflow:hidden; box-shadow: var(--shadow-card); height: 420px; }
+.location-map iframe{ width:100%; height:100%; border:0; }
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+.contact{ padding: clamp(70px, 10vw, 130px) 0; background: var(--forest); }
+.contact-cards{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 26px;
+  max-width: 720px; margin: 0 auto;
+}
+.contact-card{ background: var(--forest-soft); border-radius: var(--radius-md); padding: 34px 32px; border: 1px solid rgba(245,240,228,.1); }
+.contact-card h3{ color: var(--ivory-soft); font-size: 1.2rem; }
+.contact-card p{ color: rgba(245,240,228,.65); font-size:.9rem; }
+.contact-card .btn{ margin-top: 10px; }
+.contact-card-quiet{ display:flex; flex-direction:column; justify-content:center; }
+.contact-card-quiet p{ margin:0; line-height:1.9; }
+
+/* ==========================================================================
+   Floating WhatsApp
+   ========================================================================== */
+.whatsapp-float{
+  position:fixed; right: 22px; bottom: 22px; width: 58px; height:58px; border-radius:50%;
+  background:#25D366; display:flex; align-items:center; justify-content:center; z-index: 90;
+  box-shadow: 0 14px 30px -10px rgba(37,211,102,.6); transition: transform .3s var(--ease);
+}
+.whatsapp-float:hover{ transform: scale(1.08); }
+.whatsapp-float svg{ width:28px; height:28px; color: var(--white); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer{ background: #10190F; color: rgba(245,240,228,.7); padding: 70px 0 0; }
+.footer-grid{ display:grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid rgba(245,240,228,.1); }
+.footer-logo{ margin-bottom: 14px; display:inline-block; }
+.footer-brand p{ color: rgba(245,240,228,.55); font-size:.9rem; max-width: 280px; }
+.footer-social{ display:flex; gap: 12px; margin-top: 18px; }
+.footer-social a{
+  width: 36px; height:36px; border-radius:50%; border: 1px solid rgba(245,240,228,.2);
+  display:flex; align-items:center; justify-content:center; transition: background .3s var(--ease), border-color .3s var(--ease);
+}
+.footer-social a:hover{ background: var(--brass); border-color: var(--brass); }
+.footer-social svg{ width:16px; height:16px; }
+.footer-col h4{ color: var(--ivory-soft); font-size: .95rem; letter-spacing:.03em; margin-bottom: 1.1em; }
+.footer-col ul{ display:flex; flex-direction:column; gap: 10px; }
+.footer-col a{ font-size:.88rem; color: rgba(245,240,228,.6); transition: color .3s var(--ease); }
+.footer-col a:hover{ color: var(--brass-light); }
+.footer-contact li{ font-size:.88rem; color: rgba(245,240,228,.6); }
+.footer-bottom{
+  max-width: var(--max-width); margin:0 auto; padding: 24px clamp(20px,5vw,48px) 30px;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap: 10px; font-size:.82rem;
+}
+.footer-credit span{ color: var(--brass-light); font-weight:600; }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1024px){
+  .room-grid{ grid-template-columns: 1fr 1fr; }
+  .facility-grid{ grid-template-columns: repeat(3, 1fr); }
+  .gallery-grid{ grid-template-columns: repeat(3, 1fr); }
+  .attraction-grid{ grid-template-columns: repeat(2, 1fr); }
+  .review-track{ grid-template-columns: repeat(2, 1fr); }
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 860px){
+  .main-nav{
+    position: fixed; top:0; right:0; height: 100vh; width: min(340px, 82vw);
+    background: var(--forest); flex-direction:column; align-items:flex-start; justify-content:flex-start;
+    padding: 100px 32px 40px; gap: 34px; transform: translateX(100%);
+    transition: transform .4s var(--ease); z-index: 96;
+  }
+  .main-nav.open{ transform: translateX(0); }
+  .main-nav ul{ flex-direction:column; align-items:flex-start; gap: 20px; width:100%; }
+  .nav-link{ font-size: 1.05rem; }
+  .nav-cta{ width:100%; text-align:center; }
+  .hamburger{ display:flex; }
+
+  .about-grid, .dining-grid, .location-grid{ grid-template-columns: 1fr; }
+  .about-media img{ height: 380px; }
+  .dining-img-main{ height: 340px; }
+  .dining-img-sub{ display:none; }
+  .about-highlights{ grid-template-columns: 1fr 1fr; }
+
+  .room-grid{ grid-template-columns: 1fr; }
+  .facility-grid{ grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-auto-rows: 190px; }
+  .attraction-grid{ grid-template-columns: 1fr; }
+
+  .review-track{
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 88%;
+    overflow-x:auto; scroll-snap-type: x mandatory; padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .review-card{ scroll-snap-align: center; }
+  .review-dots{ display:flex; }
+
+  .contact-cards{ grid-template-columns: 1fr; max-width: 440px; }
+
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 540px){
+  .hero-actions{ flex-direction:column; width:100%; }
+  .hero-actions .btn{ width:100%; }
+  .about-highlights{ grid-template-columns: 1fr; }
+  .facility-grid{ grid-template-columns: 1fr 1fr; }
+  .gallery-grid{ grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+  .gallery-filters{ flex-wrap: nowrap; overflow-x:auto; padding-bottom: 6px; }
+  .filter-btn{ flex-shrink:0; }
+  .footer-grid{ grid-template-columns: 1fr; }
+  .footer-bottom{ flex-direction:column; text-align:center; }
+  .whatsapp-float{ width: 52px; height: 52px; right: 16px; bottom: 16px; }
+  .lightbox-prev{ left: 8px; } .lightbox-next{ right: 8px; }
+  .lightbox-close{ top: 12px; right: 12px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ PRELOADER-ish skip link ============ -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="brand">ABC <span>HOTEL</span></a>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#rooms" class="nav-link">Rooms</a></li>
+        <li><a href="#facilities" class="nav-link">Facilities</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#attractions" class="nav-link">Attractions</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li><a href="#policies" class="nav-link">Policies</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-accent nav-cta">Enquire Now</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=80" alt="ABC Hotel exterior at dusk with warm lighting" loading="eager">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="eyebrow hero-eyebrow">Welcome to ABC Hotel</p>
+      <h1 class="hero-title">A Stay Designed<br>Around You</h1>
+      <p class="hero-sub">Comfort, elegance and warm hospitality come together to create a memorable stay.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-accent">Enquire Now</a>
+        <a href="#rooms" class="btn btn-outline">Explore Rooms</a>
+      </div>
+      <p class="hero-location">Your comfortable stay in the heart of the destination</p>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll to next section">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="section-inner about-grid">
+      <div class="about-media reveal">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80" alt="Interior lobby seating area at ABC Hotel">
+        <div class="about-media-tag">
+          <span class="about-media-tag-num">12+</span>
+          <span class="about-media-tag-label">Years of Hospitality</span>
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">About ABC Hotel</p>
+        <h2>Where Comfort Meets Hospitality</h2>
+        <p>ABC Hotel is a welcoming destination created for travellers looking for comfort, convenience and genuine hospitality. From thoughtfully designed rooms to relaxing common spaces, every part of the property is designed to make your stay comfortable.</p>
+        <p>Whether you're here for business, leisure or a quiet pause between journeys, our team looks after the details so you don't have to.</p>
+
+        <ul class="about-highlights">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10h18M5 10V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3M4 10v8m16-8v8M4 18h16M8 14h2m4 0h2"/></svg>
+            <span>Comfortable Rooms</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.35-9.5-8.8C.6 8.4 2.4 4.9 6 4.3c2-.35 3.9.6 5 2.2 1.1-1.6 3-2.55 5-2.2 3.6.6 5.4 4.1 3.5 7.9C19 16.65 12 21 12 21z"/></svg>
+            <span>Warm Hospitality</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s7-5.5 7-12a7 7 0 1 0-14 0c0 6.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Convenient Location</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 4v14"/></svg>
+            <span>Modern Facilities</span>
+          </li>
+        </ul>
+
+        <a href="#contact" class="btn btn-dark">Enquire Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ROOMS & SUITES ============ -->
+  <section class="rooms" id="rooms">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">Rooms &amp; Suites</p>
+        <h2>Spaces Made for Rest</h2>
+        <p class="section-sub">Thoughtfully designed spaces for a comfortable and relaxing stay.</p>
+      </div>
+
+      <div class="room-grid">
+
+        <article class="room-card reveal">
+          <div class="room-media">
+            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1000&q=80" alt="Deluxe Room at ABC Hotel" loading="lazy">
+          </div>
+          <div class="room-body">
+            <h3>Deluxe Room</h3>
+            <p>A comfortable retreat with warm furnishings, soft lighting and everything you need to unwind after a day of travel.</p>
+            <ul class="room-specs">
+              <li>Queen Bed</li>
+              <li>2 Guests</li>
+              <li>Air Conditioning</li>
+              <li>Free Wi-Fi</li>
+              <li>Attached Bathroom</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark">Enquire Now</a>
+          </div>
+        </article>
+
+        <article class="room-card reveal">
+          <div class="room-media">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80" alt="Premium Room at ABC Hotel" loading="lazy">
+          </div>
+          <div class="room-body">
+            <h3>Premium Room</h3>
+            <p>A little extra space and a few extra touches, designed for guests who enjoy travelling in comfort.</p>
+            <ul class="room-specs">
+              <li>King Bed</li>
+              <li>2 Guests</li>
+              <li>Air Conditioning</li>
+              <li>Free Wi-Fi</li>
+              <li>Attached Bathroom</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark">Enquire Now</a>
+          </div>
+        </article>
+
+        <article class="room-card reveal">
+          <div class="room-media">
+            <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1000&q=80" alt="Family Room at ABC Hotel" loading="lazy">
+          </div>
+          <div class="room-body">
+            <h3>Family Room</h3>
+            <p>Generous, flexible sleeping arrangements make this room a favourite for families travelling together.</p>
+            <ul class="room-specs">
+              <li>Multiple Beds</li>
+              <li>Up to 4 Guests</li>
+              <li>Air Conditioning</li>
+              <li>Free Wi-Fi</li>
+              <li>Attached Bathroom</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark">Enquire Now</a>
+          </div>
+        </article>
+
+        <article class="room-card reveal">
+          <div class="room-media">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80" alt="Suite at ABC Hotel" loading="lazy">
+          </div>
+          <div class="room-body">
+            <h3>Suite</h3>
+            <p>A spacious layout with a separate sitting area — room to work, relax or welcome guests of your own.</p>
+            <ul class="room-specs">
+              <li>King Bed + Sitting Area</li>
+              <li>2–3 Guests</li>
+              <li>Air Conditioning</li>
+              <li>Free Wi-Fi</li>
+              <li>Attached Bathroom</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark">Enquire Now</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FACILITIES ============ -->
+  <section class="facilities" id="facilities">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">Facilities &amp; Amenities</p>
+        <h2>Everything You Need for a Comfortable Stay</h2>
+      </div>
+
+      <div class="facility-grid">
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.5a11 11 0 0 1 14 0M8 15.8a6.5 6.5 0 0 1 8 0M11.5 19h1"/><path d="M2 9a15 15 0 0 1 20 0"/></svg>
+          <h3>Free Wi-Fi</h3>
+          <p>Stay connected throughout your visit with complimentary high-speed internet.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v6M6 9h12l2 12H4L6 9z"/><path d="M9 21v-4a3 3 0 0 1 6 0v4"/></svg>
+          <h3>Air Conditioning</h3>
+          <p>Climate-controlled rooms for year-round comfort.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19h16M6 19v-5a6 6 0 0 1 12 0v5"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg>
+          <h3>Room Service</h3>
+          <p>Meals and essentials brought right to your door.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>24/7 Reception</h3>
+          <p>Our front desk team is on hand any time, day or night.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v6H4zM7 10v10M17 10v10M4 20h16"/></svg>
+          <h3>Housekeeping</h3>
+          <p>Regular housekeeping keeps every room fresh and tidy.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h16M6 10V4m4 6V4m4 6V4m4 6V4M6 10v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10"/></svg>
+          <h3>Restaurant</h3>
+          <p>On-site dining serving a relaxed selection of meals.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="10" rx="2"/><circle cx="7.5" cy="12" r="1.5"/><path d="M12 12h6"/></svg>
+          <h3>Parking</h3>
+          <p>Secure on-site parking for guests with private vehicles.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c2 2.5 3 5 3 7a3 3 0 0 1-6 0c0-2 1-4.5 3-7z"/><path d="M12 14v7M8 21h8"/></svg>
+          <h3>Hot Water</h3>
+          <p>Round-the-clock hot water in every bathroom.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="12" rx="1"/><path d="M9 21h6M12 17v4"/></svg>
+          <h3>Television</h3>
+          <p>Flat-screen televisions available in every room.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+          <h3>Power Backup</h3>
+          <p>Uninterrupted power backup for a worry-free stay.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19v-6a8 8 0 0 1 16 0v6"/><path d="M2 19h4v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2zM18 19h4v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z"/></svg>
+          <h3>Comfortable Lounge</h3>
+          <p>A calm shared space to sit back, read or meet others.</p>
+        </div>
+        <div class="facility-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12a4 4 0 0 1 8 0M12 12v5"/></svg>
+          <h3>Travel Assistance</h3>
+          <p>Local tips and help arranging onward travel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery" id="gallery">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">Explore ABC Hotel</p>
+        <h2>Take a Closer Look</h2>
+        <p class="section-sub">Take a closer look at our spaces, rooms and facilities.</p>
+      </div>
+
+      <div class="gallery-filters" id="galleryFilters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="exterior">Exterior</button>
+        <button class="filter-btn" data-filter="reception">Reception</button>
+        <button class="filter-btn" data-filter="lobby">Lobby</button>
+        <button class="filter-btn" data-filter="rooms">Rooms</button>
+        <button class="filter-btn" data-filter="bathrooms">Bathrooms</button>
+        <button class="filter-btn" data-filter="restaurant">Restaurant</button>
+        <button class="filter-btn" data-filter="pool">Pool</button>
+        <button class="filter-btn" data-filter="garden">Garden &amp; Terrace</button>
+        <button class="filter-btn" data-filter="parking">Parking</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Exterior -->
+        <div class="gallery-item" data-cat="exterior">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" alt="ABC Hotel exterior view" loading="lazy">
+          <span class="gallery-tag">Exterior</span>
+        </div>
+        <div class="gallery-item" data-cat="exterior">
+          <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=900&q=80" alt="ABC Hotel entrance and facade" loading="lazy">
+          <span class="gallery-tag">Exterior</span>
+        </div>
+        <!-- Reception -->
+        <div class="gallery-item" data-cat="reception">
+          <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=900&q=80" alt="ABC Hotel reception desk" loading="lazy">
+          <span class="gallery-tag">Reception</span>
+        </div>
+        <!-- Lobby -->
+        <div class="gallery-item" data-cat="lobby">
+          <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80" alt="ABC Hotel lobby seating" loading="lazy">
+          <span class="gallery-tag">Lobby</span>
+        </div>
+        <div class="gallery-item" data-cat="lobby">
+          <img src="https://images.unsplash.com/photo-1519449556851-5720b33024e7?auto=format&fit=crop&w=900&q=80" alt="ABC Hotel lobby lounge" loading="lazy">
+          <span class="gallery-tag">Lobby</span>
+        </div>
+        <!-- Rooms -->
+        <div class="gallery-item" data-cat="rooms">
+          <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" alt="Deluxe Room interior" loading="lazy">
+          <span class="gallery-tag">Rooms</span>
+        </div>
+        <div class="gallery-item" data-cat="rooms">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=80" alt="Suite interior" loading="lazy">
+          <span class="gallery-tag">Rooms</span>
+        </div>
+        <div class="gallery-item" data-cat="rooms">
+          <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=80" alt="Premium Room interior" loading="lazy">
+          <span class="gallery-tag">Rooms</span>
+        </div>
+        <!-- Bathrooms -->
+        <div class="gallery-item" data-cat="bathrooms">
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80" alt="Modern hotel bathroom" loading="lazy">
+          <span class="gallery-tag">Bathrooms</span>
+        </div>
+        <div class="gallery-item" data-cat="bathrooms">
+          <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=900&q=80" alt="Clean bathroom with modern fixtures" loading="lazy">
+          <span class="gallery-tag">Bathrooms</span>
+        </div>
+        <!-- Restaurant -->
+        <div class="gallery-item" data-cat="restaurant">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="ABC Hotel restaurant seating" loading="lazy">
+          <span class="gallery-tag">Restaurant</span>
+        </div>
+        <div class="gallery-item" data-cat="restaurant">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Dining area at ABC Hotel" loading="lazy">
+          <span class="gallery-tag">Restaurant</span>
+        </div>
+        <!-- Pool -->
+        <div class="gallery-item" data-cat="pool">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80" alt="Swimming pool at ABC Hotel" loading="lazy">
+          <span class="gallery-tag">Pool</span>
+        </div>
+        <!-- Garden & Terrace -->
+        <div class="gallery-item" data-cat="garden">
+          <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=900&q=80" alt="Garden and terrace area" loading="lazy">
+          <span class="gallery-tag">Garden &amp; Terrace</span>
+        </div>
+        <!-- Parking -->
+        <div class="gallery-item" data-cat="parking">
+          <img src="https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=900&q=80" alt="Hotel parking area" loading="lazy">
+          <span class="gallery-tag">Parking</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+    <img src="" alt="" id="lightboxImg">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <!-- ============ DINING ============ -->
+  <section class="dining" id="dining">
+    <div class="section-inner dining-grid">
+      <div class="dining-media reveal">
+        <img class="dining-img-main" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80" alt="ABC Hotel restaurant interior">
+        <img class="dining-img-sub" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Dining area with table settings">
+      </div>
+      <div class="dining-copy reveal">
+        <p class="eyebrow">Dine &amp; Unwind</p>
+        <h2>A Relaxed Place to Eat</h2>
+        <p>Enjoy a relaxed dining experience in a comfortable setting, with a selection of delicious meals prepared for our guests.</p>
+        <p>Start the day with a leisurely breakfast, or unwind in the evening in an ambience that feels unhurried and warm — every plate served with the same care as the rest of your stay.</p>
+        <a href="#contact" class="btn btn-dark">Enquire Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ATTRACTIONS ============ -->
+  <section class="attractions" id="attractions">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">Nearby Attractions</p>
+        <h2>Explore What's Around</h2>
+        <p class="section-sub">Discover popular places and experiences near ABC Hotel.</p>
+      </div>
+
+      <div class="attraction-grid">
+        <article class="attraction-card reveal">
+          <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=700&q=80" alt="City Centre streets" loading="lazy">
+          <div class="attraction-body">
+            <h3>City Centre</h3>
+            <p>A short ride from the hotel, with shops, cafes and everyday conveniences.</p>
+            <span class="attraction-meta">Approx. 10 minutes by car — demo content</span>
+          </div>
+        </article>
+        <article class="attraction-card reveal">
+          <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=700&q=80" alt="Historic landmark building" loading="lazy">
+          <div class="attraction-body">
+            <h3>Historic Landmark</h3>
+            <p>A well-known local landmark worth a visit for its architecture and history.</p>
+            <span class="attraction-meta">Approx. 15 minutes by car — demo content</span>
+          </div>
+        </article>
+        <article class="attraction-card reveal">
+          <img src="https://images.unsplash.com/photo-1621789098261-cee1b8b3a3c9?auto=format&fit=crop&w=700&q=80" alt="Popular temple exterior" loading="lazy">
+          <div class="attraction-body">
+            <h3>Popular Temple</h3>
+            <p>A peaceful spot for visitors interested in local culture and heritage.</p>
+            <span class="attraction-meta">Approx. 12 minutes by car — demo content</span>
+          </div>
+        </article>
+        <article class="attraction-card reveal">
+          <img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=700&q=80" alt="Local market stalls" loading="lazy">
+          <div class="attraction-body">
+            <h3>Local Market</h3>
+            <p>Browse local goods, produce and everyday street life close to the hotel.</p>
+            <span class="attraction-meta">Approx. 8 minutes by car — demo content</span>
+          </div>
+        </article>
+        <article class="attraction-card reveal">
+          <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=700&q=80" alt="Railway station platform" loading="lazy">
+          <div class="attraction-body">
+            <h3>Railway Station</h3>
+            <p>Convenient rail access for guests arriving from or travelling onward.</p>
+            <span class="attraction-meta">Approx. 15 minutes by car — demo content</span>
+          </div>
+        </article>
+        <article class="attraction-card reveal">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80" alt="Tourist attraction viewpoint" loading="lazy">
+          <div class="attraction-body">
+            <h3>Tourist Attraction</h3>
+            <p>A popular viewpoint and gathering spot for visitors to the area.</p>
+            <span class="attraction-meta">Approx. 20 minutes by car — demo content</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="reviews" id="reviews">
+    <div class="section-inner">
+      <div class="section-head light">
+        <p class="eyebrow">What Our Guests Say</p>
+        <h2>Guest Reviews</h2>
+      </div>
+
+      <div class="review-track" id="reviewTrack">
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"The room was spotless and the bed incredibly comfortable. Everything felt well looked after, right down to the smallest details."</p>
+          <div class="review-person">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Portrait of guest Ananya R.">
+            <div>
+              <strong>Ananya R.</strong>
+              <span>Verified Guest</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"Staff went out of their way to help with everything from late check-in to local recommendations. It felt genuinely welcoming."</p>
+          <div class="review-person">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Portrait of guest Rohan K.">
+            <div>
+              <strong>Rohan K.</strong>
+              <span>Verified Guest</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="4 out of 5 stars">★★★★☆</div>
+          <p>"Great location, close to everything we needed. The lobby and common spaces were calm and comfortable to sit in."</p>
+          <div class="review-person">
+            <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&fit=crop&w=100&q=80" alt="Portrait of guest Meera S.">
+            <div>
+              <strong>Meera S.</strong>
+              <span>Verified Guest</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"A genuinely comfortable stay from start to finish. Quiet rooms, warm service, and nothing felt like an afterthought."</p>
+          <div class="review-person">
+            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=100&q=80" alt="Portrait of guest Devraj P.">
+            <div>
+              <strong>Devraj P.</strong>
+              <span>Verified Guest</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="review-dots" id="reviewDots"></div>
+    </div>
+  </section>
+
+  <!-- ============ POLICIES ============ -->
+  <section class="policies" id="policies">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">Hotel Policies</p>
+        <h2>Good to Know Before You Arrive</h2>
+      </div>
+
+      <div class="accordion" id="accordion">
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="true">
+            <span>Check-in &amp; Check-out</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel" style="max-height:200px;">
+            <p>Check-in from 12:00 PM and check-out until 11:00 AM. Early check-in or late check-out may be arranged on request, subject to availability. (Demo content — replace with actual hotel timings.)</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Cancellation Policy</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Enquiries can typically be amended or cancelled up until a set period before arrival. Our team will confirm specific terms at the time of your enquiry. (Demo content only.)</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Identification</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Guests may be required to provide valid government-issued identification at check-in, in line with local regulations.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Child Policy</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Children are welcome at ABC Hotel. Age-based allowances and any additional arrangements can be confirmed directly with our team. (Demo content only.)</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Extra Bed</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Extra bedding may be arranged for select room types, subject to availability. Please mention this in your enquiry so we can check what's possible.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Visitor Policy</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Visitors are asked to register at reception and are generally welcome during reasonable daytime hours, in line with property guidelines.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Smoking Policy</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>ABC Hotel is a largely smoke-free property. Smoking is restricted to designated outdoor areas only.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Pet Policy</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Pet policies vary by room type. Please check with our team before arrival if you plan to travel with a pet. (Demo content only.)</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Payment Policy</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Accepted payment methods and any advance requirements will be shared by our team at the time of confirming your stay.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Property Rules</span>
+            <span class="accordion-icon"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>We ask all guests to be mindful of quiet hours, respectful of other guests and staff, and careful with hotel property throughout their stay.</p>
+          </div>
+        </div>
+
+      </div>
+      <p class="policy-note">These are demo policies for illustration only, structured to be easily replaced with ABC Hotel's actual terms.</p>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION ============ -->
+  <section class="location" id="location">
+    <div class="section-inner location-grid">
+      <div class="location-copy reveal">
+        <p class="eyebrow">Find Us</p>
+        <h2>Easy to Reach, Easy to Rest</h2>
+        <p class="location-address">123 Demo Street, Sample District,<br>City, State — 000000</p>
+        <p>Set in a convenient part of the city, ABC Hotel is easy to reach by road and within easy distance of key local landmarks.</p>
+        <ul class="location-list">
+          <li>Nearest railway station approx. 15 minutes away</li>
+          <li>Nearest airport approx. 40 minutes away</li>
+          <li>Well connected by local taxi and ride-hailing services</li>
+        </ul>
+        <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="btn btn-dark">Get Directions</a>
+      </div>
+      <div class="location-map reveal">
+        <iframe title="ABC Hotel location map placeholder" src="https://www.google.com/maps?q=hotel&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT / ENQUIRY ============ -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="section-head light">
+        <p class="eyebrow">Planning Your Stay?</p>
+        <h2>Get in Touch</h2>
+        <p class="section-sub">Get in touch with ABC Hotel and let us help you plan a comfortable stay.</p>
+      </div>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <h3>Prefer to Talk?</h3>
+          <p>Reach our team directly and we'll help you plan your stay.</p>
+          <a href="tel:+910000000000" class="btn btn-outline-light btn-block">Call Us</a>
+          <a href="https://wa.me/910000000000?text=Hello%20ABC%20Hotel%2C%20I%20would%20like%20to%20enquire%20about%20staying%20at%20your%20hotel." target="_blank" rel="noopener" class="btn btn-whatsapp btn-block">WhatsApp Us</a>
+        </div>
+        <div class="contact-card contact-card-quiet">
+          <h3>Front Desk</h3>
+          <p>+91 00000 00000<br>stay@abchotel.demo<br>123 Demo Street, Sample District, City</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a class="whatsapp-float" href="https://wa.me/910000000000?text=Hello%20ABC%20Hotel%2C%20I%20would%20like%20to%20enquire%20about%20staying%20at%20your%20hotel." target="_blank" rel="noopener" aria-label="Enquire on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12.001 2c-5.522 0-9.999 4.477-9.999 9.999 0 1.762.451 3.418 1.242 4.858L2 22l5.244-1.377c1.398.762 2.987 1.198 4.757 1.198 5.523 0 10-4.478 10-10s-4.477-9.999-9.999-9.999zm0 18.174c-1.605 0-3.093-.446-4.375-1.221l-.313-.185-3.263.856.871-3.18-.204-.325c-.855-1.359-1.305-2.928-1.305-4.556 0-4.7 3.822-8.522 8.522-8.522s8.522 3.822 8.522 8.522-3.822 8.522-8.522 8.522z"/>
+  </svg>
+</a>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="section-inner footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="#home" class="brand footer-logo">ABC <span>HOTEL</span></a>
+      <p>A welcoming destination for travellers looking for comfort, convenience and genuine hospitality.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="ABC Hotel on Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 9h3V6h-3a3 3 0 0 0-3 3v2H9v3h2v6h3v-6h3l1-3h-4v-1a1 1 0 0 1 1-1z"/></svg>
+        </a>
+        <a href="#" aria-label="ABC Hotel on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#attractions">Attractions</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#policies">Policies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-contact">
+        <li>+91 00000 00000</li>
+        <li>stay@abchotel.demo</li>
+        <li>123 Demo Street, Sample District, City</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Important Links</h4>
+      <ul>
+        <li><a href="#policies">Hotel Policies</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 ABC Hotel. All Rights Reserved.</p>
+    <p class="footer-credit">Website by <span>Ixoria Pixel</span></p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ============ Sticky header ============ */
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ============ Mobile nav ============ */
+  const hamburger = document.getElementById('hamburger');
+  const mainNav = document.getElementById('mainNav');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function closeNav(){
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mainNav.classList.remove('open');
+    navOverlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  function openNav(){
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mainNav.classList.add('open');
+    navOverlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  hamburger.addEventListener('click', () => {
+    mainNav.classList.contains('open') ? closeNav() : openNav();
+  });
+  navOverlay.addEventListener('click', closeNav);
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+  /* ============ Active nav link on scroll ============ */
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = Array.from(navLinks).map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        const id = '#' + entry.target.id;
+        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => navObserver.observe(s));
+
+  /* ============ Reveal on scroll ============ */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* ============ Gallery filter ============ */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      galleryItems.forEach(item => {
+        const show = filter === 'all' || item.dataset.cat === filter;
+        item.classList.toggle('hide', !show);
+      });
+      buildLightboxList();
+    });
+  });
+
+  /* ============ Lightbox ============ */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+
+  let visibleItems = [];
+  let currentIndex = 0;
+
+  function buildLightboxList(){
+    visibleItems = Array.from(galleryItems).filter(i => !i.classList.contains('hide'));
+  }
+  buildLightboxList();
+
+  function openLightbox(item){
+    buildLightboxList();
+    currentIndex = visibleItems.indexOf(item);
+    showCurrent();
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function showCurrent(){
+    const img = visibleItems[currentIndex].querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  function nextImage(){ currentIndex = (currentIndex + 1) % visibleItems.length; showCurrent(); }
+  function prevImage(){ currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length; showCurrent(); }
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => openLightbox(item));
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxNext.addEventListener('click', nextImage);
+  lightboxPrev.addEventListener('click', prevImage);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+
+  /* ============ Accordion ============ */
+  const triggers = document.querySelectorAll('.accordion-trigger');
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const panel = trigger.nextElementSibling;
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      triggers.forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+        t.nextElementSibling.style.maxHeight = null;
+      });
+
+      if (!isOpen){
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ============ Review carousel dots (mobile) ============ */
+  const reviewTrack = document.getElementById('reviewTrack');
+  const reviewDotsWrap = document.getElementById('reviewDots');
+  const reviewCards = document.querySelectorAll('.review-card');
+
+  reviewCards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    if (i === 0) dot.classList.add('active');
+    dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+    dot.addEventListener('click', () => {
+      reviewCards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    });
+    reviewDotsWrap.appendChild(dot);
+  });
+
+  const dotButtons = reviewDotsWrap.querySelectorAll('button');
+  const reviewObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        const idx = Array.from(reviewCards).indexOf(entry.target);
+        dotButtons.forEach(d => d.classList.remove('active'));
+        if (dotButtons[idx]) dotButtons[idx].classList.add('active');
+      }
+    });
+  }, { root: reviewTrack, threshold: 0.6 });
+  reviewCards.forEach(card => reviewObserver.observe(card));
+
+});
+
+</script>
+</body>
+</html>
